@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'VegiApp/css/login.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section>
+        <div class="overlay"></div>
+        <form action="/" method="post">{% csrf_token %}
+            <div class="icn">
+                <i class="fa fa-check"></i>
+            </div>
+            <div class="authbox">
+                <div class="form-inputs">
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder="Username" name="username" id="username">
+                </div>
+                <div class="form-inputs">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" id="password">
+                </div>
+                <div class="btn">
+                    <button type="submit"><i class="fa fas-check"></i>&nbsp;Log In</button>
+                </div>
+                <a href="#" class="frgt">Forgot Password</a>
+            </div>
+        </form>
+        <div class="error-overlay">
+            <div class="error-box">
+                <div class="close-btn">
+                    <i class="fa fa-close"></i>
+                </div>
+                <i class="fa fa-exclamation-triangle"></i>
+                <p>Wrong username and password</p>
+            </div>
+        </div>
+    </section>
+
+<script src="{% static 'VegiApp/js/core/jquery.min.js' %}"></script>
+{% if request.GET.error %}
+<script>
+    $('.error-overlay').css('display', "flex");
+    $('.close-btn').click(function(){
+        $('.error-overlay').css('display', "none");
+    });
+</script>
+{% endif %}
+</body>
+</html>

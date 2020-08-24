@@ -1,0 +1,29 @@
+{% block navbar %}
+<div class="logo">
+  <a href="/" class="simple-text logo-normal">
+    Charlie's Home
+  </a>
+</div>
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li class="nav-item {% if request.path == '/admin-site/dashboard/' %} active {% endif %}">
+      <a class="nav-link" href="/admin-site/dashboard">
+        <i class="material-icons">dashboard</i>
+        <p>Dashboard</p>
+      </a>
+    </li>
+    <li class="nav-item {% if request.path == '/admin-site/user/' or request.path == '/admin-site/edit-user/' or request.path == '/admin-site/add-user/' or request.path == '/admin-site/user-profile/' %} active {% endif %}">
+      <a class="nav-link" href="/admin-site/user">
+        <i class="material-icons">person</i>
+        <p>User</p>
+      </a>
+    </li>
+    <li class="nav-item {% if request.path == '/admin-site/vegis/' or request.path == '/admin-site/edit-vegi/' or request.path == '/admin-site/add-vegi/' %} active {% endif %}">
+      <a class="nav-link" href="/admin-site/vegis">
+        <i class="material-icons">eco</i>
+        <p>Vegis - Fruits</p>
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock %}
