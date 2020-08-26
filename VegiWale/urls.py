@@ -20,6 +20,7 @@ urlpatterns = [
 
     # API AUTHs
     path('api/login/', APILogin.as_view(), name = 'APILogin'),
+    path('api/logout/', APILogout.as_view(), name = 'APILogout'),
     path('api/user/', APIUser.as_view(), name = 'APIUser'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
